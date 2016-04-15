@@ -23,7 +23,7 @@ var findById 		= function(request, response){
 	usuarios.findAll({
 		attributes: ['usuario','password'],
 		where : {
-			userid : request.params.id
+			usuarioid : request.params.usuarioid
 		}
 	}).then(function(users){
 		response.jsonp({response : users});
