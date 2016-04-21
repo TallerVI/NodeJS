@@ -21,7 +21,7 @@ appFasplate.use(express.logger('dev'));
 appFasplate.use(express.bodyParser());
 appFasplate.use(express.methodOverride());
 appFasplate.use(appFasplate.router);
-appFasplate.use(require('./routes/usuarios'));
+appFasplate.use(require('./routes/usuario'));
 
 /*
 for (var i = 0; i < 100; i++) {
