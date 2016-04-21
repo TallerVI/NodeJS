@@ -6,10 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
     },
     descripcion: {
       type: DataTypes.STRING,
@@ -17,7 +14,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'estados',
-    freezeTableName: true,
-    timestamp : false
+    freezeTableName: true
   });
 };

@@ -32,7 +32,7 @@ var findById 		= function(request, response){
 var create 			= function(request, response){
 	sequelize.transaction(function(transaction){
 		return Promise.all([
-		                    usuarios.create({ username : "pepe", password : "12345"}, {transaction : transaction})
+		                    usuarios.create({ nombre : request.body.usuario, password : request.body.password }, {transaction : transaction})
 		]);
 	}).then(function(result){
 		response.jsonp({response : result});

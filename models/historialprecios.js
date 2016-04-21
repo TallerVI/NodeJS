@@ -6,10 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
     },
     articuloid: {
       type: DataTypes.INTEGER(11),
@@ -29,7 +26,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'historialprecios',
-    freezeTableName: true,
-    timestamp : false
+    freezeTableName: true
   });
 };

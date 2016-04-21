@@ -28,7 +28,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'pedidodetalles',
-    freezeTableName: true,
-    timestamp : false
+    freezeTableName: true
   });
 };
