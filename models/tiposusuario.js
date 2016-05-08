@@ -14,6 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'tiposusuario',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

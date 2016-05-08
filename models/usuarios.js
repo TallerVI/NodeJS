@@ -2,14 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('usuarios', {
-    usuario: {
+    usuarioid: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
-      references: {
-        model: '',
-        key: ''
-      }
+      autoIncrement: true
     },
     nombre: {
       type: DataTypes.STRING,
@@ -19,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    tipousuario: {
+    tipousuarioid: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
       references: {
@@ -27,17 +24,23 @@ module.exports = function(sequelize, DataTypes) {
         key: 'tipousuarioid'
       }
     },
-    maquinaestado: {
+    maquinaestadoid: {
       type: DataTypes.INTEGER(11),
       allowNull: true
     },
     fechacreacion: {
       type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: 'CURRENT_TIMESTAMP'
+      defaultValue: sequelize.NOW
+    },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        unique: true
     }
   }, {
     tableName: 'usuarios',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

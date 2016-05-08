@@ -14,6 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'estados',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

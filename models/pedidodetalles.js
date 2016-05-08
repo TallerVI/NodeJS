@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     pedidoid: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
+      primaryKey: true,
       references: {
         model: 'pedidos',
         key: 'pedidosid'
@@ -28,6 +29,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'pedidodetalles',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

@@ -26,6 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'historialprecios',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

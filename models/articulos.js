@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     fechacreacion: {
       type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: 'CURRENT_TIMESTAMP'
+      defaultValue: sequelize.NOW
     },
     maquinaestadoid: {
       type: DataTypes.INTEGER(11),
@@ -25,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
         key: 'maquinaestadoid'
       }
     },
-    tipoarticulo: {
+    tipoarticuloid: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
       references: {
@@ -35,6 +35,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'articulos',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

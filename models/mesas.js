@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    maquinaestado: {
+    maquinaestadoid: {
       type: DataTypes.INTEGER(11),
       allowNull: true,
       references: {
@@ -22,6 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'mesas',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

@@ -27,10 +27,11 @@ module.exports = function(sequelize, DataTypes) {
     fechacreacion: {
       type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: 'CURRENT_TIMESTAMP'
+      defaultValue: sequelize.NOW
     }
   }, {
     tableName: 'maquinaestados',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

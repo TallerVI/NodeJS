@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('pedidos', {
-    pedidosid: {
+    pedidoid: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     fechacreacion: {
       type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: 'CURRENT_TIMESTAMP'
+      defaultValue: sequelize.NOW
     },
     usuarioid: {
       type: DataTypes.INTEGER(11),
@@ -39,6 +39,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     tableName: 'pedidos',
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

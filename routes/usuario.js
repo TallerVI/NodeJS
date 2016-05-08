@@ -2,8 +2,8 @@
  * New node file
  */
 var appFastplate = require("../app");
-var usuarios = require("../controllers/usuarios");
+var usuario = require("../controllers/usuario");
 
-appFastplate.get('/usuario', usuarios.all);
-appFastplate.get('/usuario/:usuarioid', usuarios.findById);
-appFastplate.post('/usuario', usuarios.create);
+appFastplate.get('/usuario', usuario.all);
+appFastplate.get('/usuario/:usuarioid', usuario.findById);
+appFastplate.post('/usuario', usuario.create);
