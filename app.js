@@ -15,7 +15,7 @@ var appFastplate = module.exports = express();
 // all environments
 appFastplate.set('sequelize',sequelize);
 appFastplate.set('http', http);
-appFastplate.set('port', process.env.PORT || 3000);
+appFastplate.set('port', process.env.PORT || 80);
 appFastplate.use(express.favicon());
 appFastplate.use(express.logger('dev'));
 appFastplate.use(express.bodyParser());
