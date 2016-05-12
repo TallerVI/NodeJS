@@ -10,39 +10,44 @@ var express = require('express')
 
 var sequelize = new Sequelize('fastplate', 'root', '1234', { host: 'localhost', dialect: 'mysql', pool: { max: 5, min: 0, idle: 10000}});
 
-var appFasplate = module.exports = express();
+var appFastplate = module.exports = express();
 
 // all environments
-appFasplate.set('sequelize',sequelize);
-appFasplate.set('http', http);
-appFasplate.set('port', process.env.PORT || 3000);
-appFasplate.use(express.favicon());
-appFasplate.use(express.logger('dev'));
-appFasplate.use(express.bodyParser());
-appFasplate.use(express.methodOverride());
-appFasplate.use(appFasplate.router);
-appFasplate.use(require('./routes/articulo'));
-appFasplate.use(require('./routes/estado'));
-appFasplate.use(require('./routes/funcion'));
-appFasplate.use(require('./routes/historialprecio'));
-appFasplate.use(require('./routes/maquinaestado'));
-appFasplate.use(require('./routes/mesa'));
-appFasplate.use(require('./routes/pedido'));
-appFasplate.use(require('./routes/pedidodetalle'));
-appFasplate.use(require('./routes/tipoarticulo'));
-appFasplate.use(require('./routes/tipousuario'));
-appFasplate.use(require('./routes/usuario'));
-appFasplate.get("*",function(request, response, next){
-	res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    next();
+appFastplate.set('sequelize',sequelize);
+appFastplate.set('http', http);
+appFastplate.set('port', process.env.PORT || 3000);
+appFastplate.use(express.favicon());
+appFastplate.use(express.logger('dev'));
+appFastplate.use(express.bodyParser());
+appFastplate.use(express.methodOverride());
+appFastplate.use(appFastplate.router);
+appFastplate.use(require('./routes/articulo'));
+appFastplate.use(require('./routes/estado'));
+appFastplate.use(require('./routes/funcion'));
+appFastplate.use(require('./routes/historialprecio'));
+appFastplate.use(require('./routes/maquinaestado'));
+appFastplate.use(require('./routes/mesa'));
+appFastplate.use(require('./routes/pedido'));
+appFastplate.use(require('./routes/pedidodetalle'));
+appFastplate.use(require('./routes/tipoarticulo'));
+appFastplate.use(require('./routes/tipousuario'));
+appFastplate.use(require('./routes/usuario'));
+appFastplate.use((error,request,response,next) => {
+  if(error){
+    response.jsonp(error);
+  }
+  response.header('Access-Control-Allow-Origin', '*');
+  response.header('Access-Control-Allow-Credentials', true);
+  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATH');
+  next();
 });
 
 // development only
-if ('development' == appFasplate.get('env')) {
-	appFasplate.use(express.errorHandler());
+if ('development' == appFastplate.get('env')) {
+	appFastplate.use(express.errorHandler());
 }
 
-http.createServer(appFasplate).listen(appFasplate.get('port'), function(){
-  console.log('Express server listening on port ' + appFasplate.get('port'));
+http.createServer(appFastplate).listen(appFastplate.get('port'), () => {
+  console.log('Express server listening on port ' + appFastplate.get('port'));
 });

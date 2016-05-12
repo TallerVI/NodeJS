@@ -37,12 +37,16 @@ var load = function(hostname, path, param, port, method, request, response, call
 	if(callback instanceof Function){
 		req = http.request(options, callback);
 	} else {
-		req = http.request(options, function( res ){
-			res.on('data',function(resource){
+		req = http.request(options, ( res ) => {
+			res.on('data', (resource) => {
 				response.jsonp(resource.toString());
 			});
 		});
 	}
+
+	req.on('error',( error ) => {
+		response.jsonp(error);
+	});
 	
 	if(method == 'POST'){
 		req.write(post_data);
