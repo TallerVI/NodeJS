@@ -19,7 +19,7 @@ appFastplate.set('http', http);
 //appFastplate.set('port', process.env.PORT || 3000);
 // OPENSHIFT Configuration
 appFastplate.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
-appFastplate.set('server', process.env.OPENSHIFT_NODEJS_PORT || 8080);
+appFastplate.set('server', process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
 appFastplate.use(express.favicon());
 appFastplate.use(express.logger('dev'));
 appFastplate.use(express.bodyParser());
