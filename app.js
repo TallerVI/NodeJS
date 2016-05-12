@@ -15,7 +15,11 @@ var appFastplate = module.exports = express();
 // all environments
 appFastplate.set('sequelize',sequelize);
 appFastplate.set('http', http);
-appFastplate.set('port', process.env.PORT || 80);
+// LOCALHOST Configuration
+//appFastplate.set('port', process.env.PORT || 3000);
+// OPENSHIFT Configuration
+appFastplate.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
+appFastplate.set('server', process.env.OPENSHIFT_NODEJS_PORT || 8080);
 appFastplate.use(express.favicon());
 appFastplate.use(express.logger('dev'));
 appFastplate.use(express.bodyParser());
@@ -47,7 +51,12 @@ appFastplate.use((error,request,response,next) => {
 if ('development' == appFastplate.get('env')) {
 	appFastplate.use(express.errorHandler());
 }
-
+//LOCALHOST Configuration
+/*
 http.createServer(appFastplate).listen(appFastplate.get('port'), () => {
   console.log('Express server listening on port ' + appFastplate.get('port'));
+});*/
+// OPENSHIFT Configuration
+http.createServer(appFastplate).listen(appFastplate.get('server'), appFastplate.get('port'), () => {
+  console.log('Express server listening on ' + appFastplate.get('server') +  ' port ' + appFastplate.get('port'));
 });
