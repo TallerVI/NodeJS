@@ -20,6 +20,15 @@ var findById 		= function(request, response){
 var create 			= function(request, response){
 	serverrequest.load("", "/tipousuario", request.body, "5000", "POST", request, response);
 };
+var updateAll 		= function(request, response){
+	serverrequest.load("","/tipousuario", request.body, "5000", "PUT", request,response);
+};
+var updatePart 		= function(request, response){
+	serverrequest.load("","/tipousuario", "", "5000", "PATCH", request,response);
+};
+var deleteById 		= function(request, response){
+	serverrequest.load("","/tipousuario", request.params.tipousuarioid, "5000", "DELETE", request,response);
+};
 
 /**
  * Export functions
@@ -28,3 +37,6 @@ var create 			= function(request, response){
 exports.all 		= all;
 exports.findById 	= findById;
 exports.create 		= create;
+exports.updateAll 	= updateAll;
+exports.updatePart 	= updatePart;
+exports.deleteById 	= deleteById;

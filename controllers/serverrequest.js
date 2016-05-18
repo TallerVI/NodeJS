@@ -39,13 +39,13 @@ var load = function(hostname, path, param, port, method, request, response, call
 	} else {
 		req = http.request(options, ( res ) => {
 			res.on('data', (resource) => {
-				response.jsonp(resource.toString());
+				response.status(res.statusCode).send(resource.toString());
 			});
 		});
 	}
 
 	req.on('error',( error ) => {
-		response.jsonp(error);
+		response.status(400).send(error);
 	});
 	
 	if(method == 'POST'){
