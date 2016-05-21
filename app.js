@@ -34,7 +34,6 @@ appFastplate.use((error,request,response,next) => {
 appFastplate.use(require('./routes/articulo'));
 appFastplate.use(require('./routes/estado'));
 appFastplate.use(require('./routes/funcion'));
-appFastplate.use(require('./routes/historialprecio'));
 appFastplate.use(require('./routes/maquinaestado'));
 appFastplate.use(require('./routes/mesa'));
 appFastplate.use(require('./routes/pedido'));
