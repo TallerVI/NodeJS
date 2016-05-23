@@ -29,6 +29,9 @@ var updatePart 		= function(request, response){
 var deleteById 		= function(request, response){
 	serverrequest.load("","5000", "DELETE", request,response);
 };
+var updatePassword = function(request, response){
+	serverrequest.load("","5000", "PATCH", request,response);
+};
 
 /**
  * Export functions
@@ -40,3 +43,4 @@ exports.create 		= create;
 exports.updateAll 	= updateAll;
 exports.updatePart 	= updatePart;
 exports.deleteById 	= deleteById;
+exports.updatePassword 	= updatePassword;
