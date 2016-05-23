@@ -11,22 +11,22 @@ var serverrequest	= require ("./serverrequest");
  * Private Functions 
  * */
 var all 			= function(request, response){
-	serverrequest.load("", "/mesa", "", "4000", "GET", request, response);
+	serverrequest.load("","4000", "GET", request, response);
 };
 var findById 		= function(request, response){
-	serverrequest.load("", "/mesa", request.params.mesaid, "4000", "GET", request, response);
+	serverrequest.load("","4000", "GET", request, response);
 };
 var create 			= function(request, response){
-	serverrequest.load("", "/mesa", request.body, "4000", "POST", request, response);
+	serverrequest.load("","4000", "POST", request, response);
 };
 var updateAll 		= function(request, response){
-	serverrequest.load("","/mesa", request.body, "4000", "PUT", request,response);
+	serverrequest.load("","4000", "PUT", request,response);
 };
 var updatePart 		= function(request, response){
-	serverrequest.load("","/mesa", "", "4000", "PATCH", request,response);
+	serverrequest.load("","4000", "PATCH", request,response);
 };
 var deleteById 		= function(request, response){
-	serverrequest.load("","/mesa", request.params.mesaid, "4000", "DELETE", request,response);
+	serverrequest.load("","4000", "DELETE", request,response);
 };
 
 /**

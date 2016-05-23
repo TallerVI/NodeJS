@@ -11,22 +11,22 @@ var serverrequest	= require ("./serverrequest");
  * Private Functions 
  * */
 var all 			= function(request, response){
-	serverrequest.load("", "/historialprecio", "", "5000", "GET", request, response);
+	serverrequest.load("","5000", "GET", request, response);
 };
 var findById 		= function(request, response){
-	serverrequest.load("", "/historialprecio", request.params.historialprecioid, "5000", "GET", request, response);
+	serverrequest.load("","5000", "GET", request, response);
 };
 var create 			= function(request, response){
-	serverrequest.load("", "/historialprecio", request.body, "5000", "POST", request, response);
+	serverrequest.load("","5000", "POST", request, response);
 };
 var updateAll 		= function(request, response){
-	serverrequest.load("","/historialprecio", request.body, "5000", "PUT", request,response);
+	serverrequest.load("","5000", "PUT", request,response);
 };
 var updatePart 		= function(request, response){
-	serverrequest.load("","/historialprecio", "", "5000", "PATCH", request,response);
+	serverrequest.load("","5000", "PATCH", request,response);
 };
 var deleteById 		= function(request, response){
-	serverrequest.load("","/historialprecio", request.params.historialprecioid, "5000", "DELETE", request,response);
+	serverrequest.load("","5000", "DELETE", request,response);
 };
 
 /**
