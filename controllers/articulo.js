@@ -27,7 +27,9 @@ var updatePart 		= function(request, response){
 var deleteById 		= function(request, response){
 	serverrequest.load("","4000", "DELETE", request,response);
 };
-
+var findByTipoArticulo = function(request, response){
+	serverrequest.load("","4000", "GET", request,response);
+};
 /**
  * Export functions
  * 
@@ -38,3 +40,4 @@ exports.create 		= create;
 exports.updateAll 	= updateAll;
 exports.updatePart 	= updatePart;
 exports.deleteById 	= deleteById;
+exports.findByTipoArticulo = findByTipoArticulo;
