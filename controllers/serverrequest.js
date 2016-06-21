@@ -36,7 +36,7 @@ var load = function(hostname, port, method, request, response, callback){
 	} else {
 		req = http.request(options, ( res ) => {
 			res.on('data', (resource) => {
-				response.status(res.statusCode).send(resource.toString());
+				response.status(res.statusCode).jsonp(JSON.parse(resource.toString()));
 			});
 		});
 	}
